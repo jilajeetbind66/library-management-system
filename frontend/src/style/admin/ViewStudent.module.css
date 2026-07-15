@@ -1,0 +1,148 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+.container{
+    /* min-height:10vh; */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 45px;
+    
+}
+
+.card{
+    width:1000px;
+    background:#fff;
+    border-left: 10px solid white;
+    display:flex;
+    border-radius:20px;
+    overflow:hidden;
+    position: relative;
+    box-shadow:0 15px 40px rgba(188, 206, 89, 0.15);
+}
+
+/* LEFT */
+
+.left{
+    width:35%;
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+}
+
+.left img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid rgb(255, 244, 244);
+    margin-bottom:20px;
+}
+
+.left h2{
+    margin-bottom:10px;
+    font-size:28px;
+}
+
+.role{
+    background:white;
+    color:#2563eb;
+    padding:8px 20px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* RIGHT */
+
+.right{
+    width:65%;
+    padding:40px;
+}
+
+.right h1{
+    color:#1f2937;
+    margin-bottom:30px;
+}
+
+.info{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+
+.box{
+    background:#b8c4cc;
+    border-left:5px solid #2563eb;
+    border-radius:12px;
+    padding:18px;
+    transition:.3s;
+}
+
+.box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+}
+
+.box small{
+    color:#6b7280;
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+}
+
+.box p{
+    font-size:18px;
+    font-weight:600;
+    color:#111827;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.card{
+    flex-direction:column;
+}
+
+.left,
+.right{
+    width:100%;
+}
+
+.info{
+    grid-template-columns:1fr;
+}
+
+}
+
+
+.btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.btn:hover{
+    transform: scale(1.2);
+}

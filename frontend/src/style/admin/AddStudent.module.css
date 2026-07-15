@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 0px 30px ;
+}
+
+.card {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.title {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #1f2937;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 0.5px solid gray;
+  padding-bottom: 6px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+}
+
+.submitBtn {
+  grid-column: span 2;
+  padding: 14px;
+  background:rgb(35, 134, 35);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submitBtn:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .submitBtn {
+    grid-column: span 1;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+
+
+
+.btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.btn:hover{
+    transform: scale(1.2);
+}

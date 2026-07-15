@@ -1,0 +1,52 @@
+.container {
+  padding: 0px 30px;
+}
+
+.title {
+  font-size: 36px;
+  color: #1e293b;
+}
+
+.heading {
+  font-size: 28px;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.list li {
+  background: #ffffff;
+  padding: 18px 22px;
+  border-radius: 12px;
+  font-size: 18px;
+
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+
+  transition: 0.3s;
+}
+
+.list li:hover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+ 
+}

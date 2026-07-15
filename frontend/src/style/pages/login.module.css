@@ -1,0 +1,97 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f1f5f9;
+}
+
+.card {
+  width: 380px;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.registerSection{
+  text-align:center;
+  margin-top:20px;
+}
+
+.registerLink{
+  text-decoration:none;
+  font-weight:bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#4f46e5;
+}
+
+.registerLink:hover{
+  text-decoration:underline;
+}
+
+.registerSection span{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.title {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 25px;
+
+  font-size: 32px;
+}
+
+.inputGroup {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+
+.inputGroup input {
+  padding: 12px;
+
+  font-size: 16px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 5px;
+
+  outline: none;
+}
+
+.inputGroup input:focus {
+  border-color: #2563eb;
+}
+
+.btn {
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}
