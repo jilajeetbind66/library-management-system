@@ -1,7 +1,6 @@
 import GuestHeader from '../components/Guest/GuestHeader'
 import GuestSidebar from "../components/Guest/GuestSidebar";
 import GuestFooter from "../components/Guest/GuestFooter";
-//import GuestContent from '../components/Guest/GuestContent'
 import styles from '../style/guest/GuestDashboard.module.css';
 import { Outlet } from 'react-router-dom';
 const GuestDashboard = () => {

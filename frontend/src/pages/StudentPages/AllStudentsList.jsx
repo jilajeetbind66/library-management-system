@@ -12,12 +12,14 @@ const [students,setStudents]=useState([]);
 const [msg,setMsg]=useState(location?.state?.message);
 const [page,setPage]=useState(1);
 const [totalPage,setTotalPage]=useState(0);
+const base_url='https://library-management-system-z24o.onrender.com';
+
 const limit=4;
 
 const fetchStudent=async()=>{
 try{
 
-const res = await axios.get(`http://localhost:5000/student/get-students?page=${page}&limit=${limit}`,{withCredentials:true}); 
+const res = await axios.get(`${base_url}/student/get-students?page=${page}&limit=${limit}`,{withCredentials:true}); 
 setStudents(res?.data?.students)
 setTotalPage(res.data.totalPage);
 }
@@ -34,7 +36,7 @@ fetchStudent();
 const handleSearch=async(e)=>{
   e.preventDefault();
 try{
-const res = await axios.get(`http://localhost:5000/student/search-students/${search}`); 
+const res = await axios.get(`${base_url}/student/search-students/${search}`); 
 setStudents(res.data?.students)
 }
 catch(err){
@@ -48,7 +50,7 @@ if(!confirm('are you sure to deleted record!'))
  return
 
  try{
-const res = await  axios.get(`http://localhost:5000/student/delete-student/${id}`)
+const res = await  axios.get(`${base_url}/student/delete-student/${id}`)
 setMsg(res?.data?.message);
 fetchStudent();
 }
@@ -107,7 +109,7 @@ return (
                   <td>{student.email}</td>
                   <td>{student.course}</td>
                   <td>{student.enrollmentNo}</td>
-                  <td><img src={`http://localhost:5000/images/${student.image}`} alt=""  height='50px' width='50px' style={{borderRadius:'50%'}}/></td>
+                  <td><img src={`${base_url}/images/${student.image}`} alt=""  height='50px' width='50px' style={{borderRadius:'50%'}}/></td>
                   <td>
                     <span className={styles.roleBadge}>
                       {student.role}

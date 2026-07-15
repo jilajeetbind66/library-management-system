@@ -5,9 +5,10 @@ import styles from '../../style/admin/AdminHeader.module.css';
 const AdminHeader = () => {
 const navigate=useNavigate();
 const logout=async()=>{
-const api='http://localhost:5000/user/logout'
+const base_url='https://library-management-system-z24o.onrender.com';
+const url=`${base_url}/user/logout`
 try{
-const res = await axios.post(api,{},{withCredentials:true})
+const res = await axios.post(url,{},{withCredentials:true})
 
 if(res.data.success){
 localStorage.removeItem('user')

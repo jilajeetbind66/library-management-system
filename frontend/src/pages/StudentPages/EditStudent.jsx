@@ -10,6 +10,7 @@ const EditStudent = () => {
   const [student,setStudent]=useState([]);
   const {id}=useParams()
   const navigate=useNavigate();
+  const base_url='https://library-management-system-z24o.onrender.com';
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -33,7 +34,7 @@ const EditStudent = () => {
   formData.append('course',form.course)
   formData.append('image',form.image)
 
-    const api=`http://localhost:5000/student/edit-student/${id}`;
+    const api=`${base_url}/student/edit-student/${id}`;
     try{
     const res = await axios.post(api,formData,{withCredentials:true}); 
     setMsg(res.data.message)
@@ -59,7 +60,7 @@ const EditStudent = () => {
 const fetchStudent=async()=>{
 try{
   
-const res = await axios.get(`http://localhost:5000/student/edit-student/${id}`); 
+const res = await axios.get(`${base_url}/student/edit-student/${id}`); 
 setForm(res.data)
 }
 catch(err){
@@ -141,7 +142,7 @@ fetchStudent();
             </select>
           </div>
      <div className={styles.formGroup}>
-      <img src={`http://localhost:5000/images/${form.image}`} height='50px' width='70px' alt="" style={{marginLeft:'300px',borderRadius:'5px'}} />
+      <img src={`${base_url}/images/${form.image}`} height='50px' width='70px' alt="" style={{marginLeft:'300px',borderRadius:'5px'}} />
             <label>Image</label>
             <input type="file"
               name="image"

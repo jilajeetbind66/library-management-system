@@ -4,6 +4,7 @@ import styles from "../../style/student/Profile.module.css";
 
 const Profile = () => {
   const [student, setStudent] = useState({});
+  const base_url='https://library-management-system-z24o.onrender.com';
 
   useEffect(() => {
     fetchProfile();
@@ -12,7 +13,7 @@ const Profile = () => {
   const fetchProfile = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/student/profile",
+        `${base_url}/student/profile`,
         {
           withCredentials: true,
         }
@@ -33,7 +34,7 @@ const Profile = () => {
           <div className={styles.avatar}>
             {student.image ? (
               <img
-                src={`http://localhost:5000/images/${student.image}`}
+                src={`${base_url}/images/${student.image}`}
                 alt="Student"
               />
             ) : (

@@ -9,20 +9,12 @@ const [user,setUser]=useState([]);
 const [msg,setMsg]=useState('');
 const {id}=useParams()
 const navigate=useNavigate();
-
-//   const user = {
-//     name: "Jila Jeet",
-//     email: "jilajeet@gmail.com",
-//     course: "MCA",
-//     enrollment: "MCA2026001",
-//     role: "Student",
-//     image: "https://i.pravatar.cc/250?img=15",
-//   };
+const base_url='https://library-management-system-z24o.onrender.com';
 
 const fetchUser=async()=>{
 
 try{
-const res = await axios.get(`http://localhost:5000/student/view-student/${id}`);
+const res = await axios.get(`${base_url}/student/view-student/${id}`);
 console.log(res.data);
 setUser(res.data)
 }
@@ -46,7 +38,7 @@ fetchUser();
         <div className={styles.left}>
      <button onClick={()=>navigate('/admin/students')} className={styles.btn}>❌</button>
 
-          <img src={`http://localhost:5000/images/${user.image}`} alt="Profile" />
+          <img src={`${base_url}/images/${user.image}`} alt="Profile" />
 
           <h2>{user.name}</h2>
           <span className={styles.role}>{user.role}</span>

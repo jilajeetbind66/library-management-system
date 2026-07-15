@@ -27,9 +27,9 @@ const EditBook = () => {
 
 const handleSubmit = async(e) => {
 e.preventDefault();
-const API=`http://localhost:5000/books/edit-book/${id}`;
+const base_url='https://library-management-system-z24o.onrender.com';
 try{
-const res= await axios.post(API,bookData,{withCredentials:true});
+const res= await axios.post(`${base_url}/books/edit-book/${id}`,bookData,{withCredentials:true});
 setMsg(res.data.message);
  navigate('/admin/book-list/',{state:{message:res.data.message}})
 

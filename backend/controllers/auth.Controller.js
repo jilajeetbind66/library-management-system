@@ -50,7 +50,11 @@ const user= await User.findOne({email});
 const student = await Student.findOne({email})
 
 const token = jwt.sign({studentId:student._id,role:user.role,name:user.name,image:student.image},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRE_IN});
-res.cookie(process.env.COOKIE_NAME,token)
+res.cookie(process.env.COOKIE_NAME,token,{
+  httpOnly: true,
+  secure: true,
+  sameSite: "None"
+})
 
 return res.status(200).json({
         success:true,role:user.role,message:'Login Success!',image:student.image,studentId:student._id

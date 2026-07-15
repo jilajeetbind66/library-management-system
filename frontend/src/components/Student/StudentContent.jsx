@@ -7,8 +7,9 @@ const AdminContent = () => {
   const [data,setData]=useState([]);
 const navigate=useNavigate();
 const fetchData=async()=>{
-  try{
-const res = await axios.get('http://localhost:5000/user/getData/',{withCredentials:true}); 
+try{
+const base_url='https://library-management-system-z24o.onrender.com';
+const res = await axios.get(`${base_url}/user/getData/`,{withCredentials:true}); 
 console.log(res.data.message);
 
 }catch(err){

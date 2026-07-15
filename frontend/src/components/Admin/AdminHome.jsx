@@ -9,9 +9,9 @@ const AdminHome = () => {
    const [response,setResponse]=useState([]);
   
 const fetchData=async()=>{
+const base_url='https://library-management-system-z24o.onrender.com'
   try{
-  const API='http://localhost:5000/issue/get-issue';
-  const res = await axios.get(API,{withCredentials:true});
+  const res = await axios.get(`${base_url}/issue/get-issue`,{withCredentials:true});
   setResponse(res.data);
   }
   catch(err){

@@ -29,9 +29,9 @@ const AddStudent = () => {
   formData.append('enrollmentNo',form.enrollmentNo)
   formData.append('course',form.course)
   formData.append('image',form.image)
-    const api='http://localhost:5000/student/add-student';
+  const base_url='https://library-management-system-z24o.onrender.com';
     try{
-    const res = await axios.post(api,formData,{withCredentials:true}); 
+    const res = await axios.post(`${base_url}/student/add-student`,formData,{withCredentials:true}); 
     setMsg(res.data.message)
     navigate('/admin/students/',{state:{message:'Record Adeed Sucessfully !'}})
     }

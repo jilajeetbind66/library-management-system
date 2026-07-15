@@ -16,8 +16,9 @@ const BrowseBook = () => {
   }, [page]);
 
   const fetchBooks = async () => {
+    const base_url='https://library-management-system-z24o.onrender.com';
     try {
-      const res = await axios.get(`http://localhost:5000/books/book-list?page=${page}&limit=${limit}`,{withCredentials:true});
+      const res = await axios.get(`${base_url}/books/book-list?page=${page}&limit=${limit}`,{withCredentials:true});
     
       setBooks(res.data?.books);
       setTotalPage(res.data?.totalPage)

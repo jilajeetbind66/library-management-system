@@ -9,12 +9,13 @@ const ReturnBook = () => {
   const [msg,setMsg]=useState('');
     const [page,setPage]=useState(1);
     const [totalPage,setTotalPage]=useState(0);
+    const base_url='https://library-management-system-z24o.onrender.com';
     const limit=5;
   
 
 const fetchIssuedBook=async()=>{
 try{
-const res = await axios.get(`http://localhost:5000/issue/fetch-issued?page=${page}&limit=${limit}`,{withCredentials:true});
+const res = await axios.get(`${base_url}/issue/fetch-issued?page=${page}&limit=${limit}`,{withCredentials:true});
 setIssuedBook(res.data?.issued);
 setTotalPage(res.data?.totalPage);
 }
@@ -32,7 +33,7 @@ fetchIssuedBook();
 
 const handleReturn=async(issueId)=>{
 try{
-const res = await axios.patch(`http://localhost:5000/issue/return-book/${issueId}`,{},{withCredentials:true}); 
+const res = await axios.patch(`${base_url}/issue/return-book/${issueId}`,{},{withCredentials:true}); 
 setMsg(res.data.message);
 fetchIssuedBook();
 }

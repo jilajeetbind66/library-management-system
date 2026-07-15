@@ -24,9 +24,9 @@ const AddBook = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-const API='http://localhost:5000/books/add-book';
+const base_url='https://library-management-system-z24o.onrender.com';
 try{
-const res= await axios.post(API,bookData,{withCredentials:true});
+const res= await axios.post(`${base_url}/books/add-book`,bookData,{withCredentials:true});
 setMsg(res.data.message);
 }
 catch(err){

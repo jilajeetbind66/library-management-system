@@ -12,7 +12,9 @@ const IssueBook = () => {
 
   const [books,setBooks]=useState([])
   const [bookSearch,setBookSearch]=useState('');
-  const [selectBook,setSelectBook]=useState(null)
+  const [selectBook,setSelectBook]=useState(null);
+  const base_url='https://library-management-system-z24o.onrender.com';
+
   
  
   const issueDate = new Date(); 
@@ -23,7 +25,7 @@ const IssueBook = () => {
 const handleSubmit=async(e)=>{
 e.preventDefault();
 try{  
-const res = await axios.post('http://localhost:5000/issue/issue-book',{studentId:selectStudent._id,bookId:selectBook._id},{withCredentials:true});
+const res = await axios.post(`${base_url}/issue/issue-book`,{studentId:selectStudent._id,bookId:selectBook._id},{withCredentials:true});
 setMsg(res.data.message);
 }
 catch(err){
@@ -44,7 +46,7 @@ return;
 }
 
 try{
-const res = await axios.get(`http://localhost:5000/student/search?text=${value}`,{withCredentials:true})
+const res = await axios.get(`${base_url}/student/search?text=${value}`,{withCredentials:true})
 setStudents(res.data.students);
 }
 catch(err){
@@ -72,7 +74,7 @@ return;
 }
 
 try{  
-const res = await axios.get(`http://localhost:5000/books/search?text=${value}`,{withCredentials:true})
+const res = await axios.get(`${base_url}/books/search?text=${value}`,{withCredentials:true})
 setBooks(res.data.books);
 }
 catch(err){

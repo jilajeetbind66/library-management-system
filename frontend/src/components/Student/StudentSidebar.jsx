@@ -9,7 +9,8 @@ const navigate=useNavigate();
 
 const handleLogout=async()=>{
 try{
-const res = await axios.post('http://localhost:5000/user/logout',{},{withCredentials:true})
+const base_url='https://library-management-system-z24o.onrender.com';
+const res = await axios.post(`${base_url}/user/logout`,{},{withCredentials:true})
 
 if(res.data.success)
   navigate('/')

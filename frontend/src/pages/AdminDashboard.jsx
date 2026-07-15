@@ -1,7 +1,6 @@
 import AdminHeader from '../components/Admin/AdminHeader'
 import AdminSidebar from "../components/Admin/AdminSidebar";
 import AdminFooter from "../components/Admin/AdminFooter";
-//import AdminContent from '../components/Admin/AdminHome'
 import { Outlet } from 'react-router-dom';
 import styles from '../style/admin/AdminDashboard.module.css';
 
