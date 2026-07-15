@@ -30,7 +30,7 @@ setUser(res.data)
 if(res.data.role==='admin'){ 
  return navigate('/admin/',{replace:true});
  }
-else(res.data.role==='student')
+else if (res.data.role==='student')
 navigate('/student')  
 }
 catch(err){

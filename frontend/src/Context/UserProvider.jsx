@@ -9,9 +9,10 @@ const [loading,setLoading]=useState(false)
 useEffect(()=>{
 
 const checkLogin=async()=>{
-
+const base_url='https://library-management-system-z24o.onrender.com';
 try{
-const res = await axios.get('http://localhost:5000/user/me',{withCredentials:true});
+try{
+const res = await axios.get(`${base_url}/user/me`,{withCredentials:true});
 setUser(res.data);
 }
 catch(err){
