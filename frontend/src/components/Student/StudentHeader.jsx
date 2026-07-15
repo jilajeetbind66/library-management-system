@@ -4,8 +4,8 @@ import { UserContext } from "../../Context/UserContext";
 
 const StudentHeader = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
-  
+  const base_url='https://library-management-system-z24o.onrender.com';
+
 
   return (
     <header className={styles.header}>
@@ -23,7 +23,7 @@ const StudentHeader = () => {
    <div className={styles.right}>
   <div className={styles.profile}>
     <img
-      src={`http://localhost:5000/images/${user?.image}`}
+      src={`${base_url}/images/${user?.image}`}
       alt="Profile"
       className={styles.profileImg}
     />

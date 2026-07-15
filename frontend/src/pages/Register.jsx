@@ -23,10 +23,11 @@ const Register = () => {
 
   const handleSubmit=async(e) => {
     e.preventDefault();
+    const base_url='https://library-management-system-z24o.onrender.com';
     if(formData.password!==formData.confirmPassword)
       return setMsg('password does not matched!')
     try{      
-    const res = await axios.post('http://localhost:5000/user/signup/',formData) 
+    const res = await axios.post(`${base_url}/user/signup/`,formData) 
     //if (res.data.success)
         navigate('/login') 
     //setMsg(res.data.message);

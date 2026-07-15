@@ -11,13 +11,13 @@ const BookList = () => {
   const [books,setBooks]=useState([]);
   const [msg,setMsg]=useState(location?.state?.message);
   const [page,setPage]=useState(1);
+  const base_url='https://library-management-system-z24o.onrender.com';
   const [totalPage,setTotalPage]=useState(0);
   const limit=5;
 
 
 const handleSearch=async(e) => {
 e.preventDefault();
-const base_url='https://library-management-system-z24o.onrender.com';
 try{
 const res = await axios.get(`${base_url}/books/search-book/${search}`,{withCredentials:true});
 setBooks(res.data.book)
@@ -29,7 +29,7 @@ console.log(err.response.data.message);
 
 const Fetch_All_Books=async()=>{
 try{
-const res = await axios.get(`http://localhost:5000/books/book-list?page=${page}&limit=${limit}`,{withCredentials:true});
+const res = await axios.get(`${base_url}/books/book-list?page=${page}&limit=${limit}`,{withCredentials:true});
 setBooks(res.data.books)
 setTotalPage(res.data.totalPage)
 
@@ -50,7 +50,7 @@ const handleDelete=async(id)=>{
 if(!confirm('are you sure to deleted book ?'))
     return
 try{
-const res = await axios.get(`http://localhost:5000/books/delete-book/${id}`,{withCredentials:true});
+const res = await axios.get(`${base_url}/books/delete-book/${id}`,{withCredentials:true});
 setMsg(res.data.message);   
 Fetch_All_Books();
 }

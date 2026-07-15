@@ -8,7 +8,8 @@ import { useEffect } from "react";
 const EditBook = () => {
   const {id}=useParams();
   const navigate=useNavigate();
-  const [msg,setMsg]=useState('')
+  const [msg,setMsg]=useState('');
+  const base_url='https://library-management-system-z24o.onrender.com';
   const [bookData, setBookData] = useState({
     title: "",
     author: "",
@@ -27,7 +28,6 @@ const EditBook = () => {
 
 const handleSubmit = async(e) => {
 e.preventDefault();
-const base_url='https://library-management-system-z24o.onrender.com';
 try{
 const res= await axios.post(`${base_url}/books/edit-book/${id}`,bookData,{withCredentials:true});
 setMsg(res.data.message);
@@ -50,7 +50,7 @@ const Fetch_Edit_Book=async()=>{
     console.log('edit');
     
 try{
-const res = await axios.get(`http://localhost:5000/books/edit-book/${id}`,{withCredentials:true})
+const res = await axios.get(`${base_url}/books/edit-book/${id}`,{withCredentials:true})
 setBookData(res.data);
 }
 catch(err){
