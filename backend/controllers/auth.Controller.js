@@ -5,10 +5,11 @@ import Student from '../models/Student.Model.js'
 
 const Login=async(req,res)=>{
 const {email,password}=req.body;
-console.log(email);
+console.log("DB Name:", mongoose.connection.db.databaseName);
+console.log("Collection:", User.collection.name);
+console.log("Users Count:", await User.countDocuments());
 try{
 const user= await User.findOne({email});
-console.log(user);
 
   if(!user){
     return res.status(404).json({
