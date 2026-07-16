@@ -11,7 +11,7 @@ import cookieParser from "cookie-parser";
 const app=express();
 app.use(cookieParser());
 app.use(express.static('public'))
-app.use(cors({origin:process.env.CLIENT_URL,credentials:true}));
+app.use(cors({origin:'https://library-management-system-by-jilajeet.netlify.app',credentials:true}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
