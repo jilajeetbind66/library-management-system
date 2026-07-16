@@ -3,38 +3,13 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
 import Student from '../models/Student.Model.js'
 
-// const Signup=async(req,res)=>{
-// let {name,email,password}=req.body;
-// try{
-// password = await bcrypt.hash(password,10);
-// await User.create({name,email,password}); 
-
-// return res.status(200).json({success:true,message:'User Created Successfully!'})
-// }
-// catch(err){
-
-//     if(err.code===11000){
-//         return res.status(422).json({
-//     success:false,
-//     message:'Email Already Used'
-//     }); 
-// }
-//     if(err.name==='ValidationError'){
-//     return res.status(422).json({
-//     success:false,
-//     message:'Mongoose Validation Error'
-//     });
-//     }
-
-// return res.status(500).json({success:false,message:'Internal Sever Error'})
-// }
-// }
-
-
 const Login=async(req,res)=>{
 const {email,password}=req.body;
+console.log(email);
 try{
 const user= await User.findOne({email});
+console.log(user);
+
   if(!user){
     return res.status(404).json({
     success:false,message:'User Not Found!'
@@ -53,7 +28,7 @@ const token = jwt.sign({studentId:student._id,role:user.role,name:user.name,imag
 res.cookie(process.env.COOKIE_NAME,token,{
   httpOnly: true,
   secure: true,
-  sameSite: "None"
+  sameSite: "none"
 })
 
 return res.status(200).json({
