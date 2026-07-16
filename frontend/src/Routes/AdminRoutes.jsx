@@ -9,7 +9,7 @@ import VeiwStudent from '../pages/StudentPages/VeiwStudent'
 import ErrorPage from '../ErrorPage'
 import BookList from '../pages/AdminPages/BookList'
 import ViewBook from '../pages/AdminPages/ViewBook'
-import EditBook from '../pages/AdminPages/Editbook'
+import EditBook from '../pages/AdminPages/EditBook'
 import IssueBook from '../pages/AdminPages/IssueBook'
 import ReturnBook from '../pages/AdminPages/ReturnBook'
 
