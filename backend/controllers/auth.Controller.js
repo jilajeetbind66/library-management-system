@@ -2,6 +2,7 @@ import User from "../models/userModel.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
 import Student from '../models/Student.Model.js'
+import mongoose from "mongoose";
 
 const Login=async(req,res)=>{
 const {email,password}=req.body;
