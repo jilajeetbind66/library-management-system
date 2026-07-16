@@ -3,6 +3,7 @@ import styles from "../../style/admin/AddStudent.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+const base_url = import.meta.env.VITE_BACKEND_URL
 
 
 const EditStudent = () => {
@@ -10,7 +11,6 @@ const EditStudent = () => {
   const [student,setStudent]=useState([]);
   const {id}=useParams()
   const navigate=useNavigate();
-  const base_url='https://library-management-system-z24o.onrender.com';
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -34,9 +34,8 @@ const EditStudent = () => {
   formData.append('course',form.course)
   formData.append('image',form.image)
 
-    const api=`${base_url}/student/edit-student/${id}`;
     try{
-    const res = await axios.post(api,formData,{withCredentials:true}); 
+    const res = await axios.post(`${base_url}/student/edit-student/${id}`,formData,{withCredentials:true}); 
     setMsg(res.data.message)
     navigate('/admin/students/',{state:{message:'Record Updated Sucessfully !'}})
     }
@@ -44,14 +43,6 @@ const EditStudent = () => {
     console.log(err.response?.data?.message);
     setMsg(err.response?.data?.message)
     }
-    // setForm({
-    //   name: "",
-    //   email: "",
-    //   password: "",
-    //   enrollmentNo: "",
-    //   course: "",
-    //   image: null,
-    // });
   };
 
 

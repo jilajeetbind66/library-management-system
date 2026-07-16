@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "../../style/admin/AddStudent.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const AddStudent = () => {
   const navigate=useNavigate();
@@ -29,8 +31,8 @@ const AddStudent = () => {
   formData.append('enrollmentNo',form.enrollmentNo)
   formData.append('course',form.course)
   formData.append('image',form.image)
-  const base_url='https://library-management-system-z24o.onrender.com';
-    try{
+  
+  try{
     const res = await axios.post(`${base_url}/student/add-student`,formData,{withCredentials:true}); 
     setMsg(res.data.message)
     navigate('/admin/students/',{state:{message:'Record Adeed Sucessfully !'}})

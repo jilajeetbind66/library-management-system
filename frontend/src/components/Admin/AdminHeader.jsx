@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const base_url = import.meta.env.VITE_BACKEND_URL
 import styles from '../../style/admin/AdminHeader.module.css';
 
 const AdminHeader = () => {
 const navigate=useNavigate();
+
 const logout=async()=>{
-const base_url='https://library-management-system-z24o.onrender.com';
-const url=`${base_url}/user/logout`
 try{
-const res = await axios.post(url,{},{withCredentials:true})
+const res = await axios.post(`${base_url}/user/logout`,{},{withCredentials:true})
 
 if(res.data.success){
 localStorage.removeItem('user')

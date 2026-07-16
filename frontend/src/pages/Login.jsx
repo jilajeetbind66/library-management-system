@@ -5,6 +5,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
+
+
 const Login = () => {
   const {setUser}=useContext(UserContext);
   const navigate = useNavigate();
@@ -23,18 +27,17 @@ const Login = () => {
 
   const handleSubmit =async(e) => {
     e.preventDefault();
-const base_url='https://library-management-system-z24o.onrender.com';
 try{
 const res = await axios.post(`${base_url}/user/login/`,formData,{withCredentials:true});
-setUser(res.data)
-if(res.data.role==='admin'){ 
+setUser(res?.data)
+if(res.data?.role==='admin'){ 
  return navigate('/admin/',{replace:true});
  }
-else if (res.data.role==='student')
+else if (res.data?.role==='student')
 navigate('/student')  
 }
 catch(err){
-setMsg(err.response.data.message);
+setMsg(err.response?.data?.message);
   
 }
 

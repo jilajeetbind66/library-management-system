@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import styles from '../../style/admin/IssueBook.module.css'
 import {useNavigate} from 'react-router-dom'
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const IssueBook = () => {
   const [msg,setMsg]=useState('');
@@ -13,9 +15,7 @@ const IssueBook = () => {
   const [books,setBooks]=useState([])
   const [bookSearch,setBookSearch]=useState('');
   const [selectBook,setSelectBook]=useState(null);
-  const base_url='https://library-management-system-z24o.onrender.com';
 
-  
  
   const issueDate = new Date(); 
   const dueDate = new Date(issueDate)

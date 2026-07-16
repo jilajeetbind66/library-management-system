@@ -3,11 +3,10 @@ import axios from "axios";
 import styles from "../../style/student/MyBook.module.css";
 import { useContext } from "react";
 import { UserContext } from "../../Context/UserContext";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const MyBook = () => {
-  // const {user}=useContext(UserContext);
-  // const id=user.studentId;
-  // console.log(id);
   
   const [books, setBooks] = useState([]);
 
@@ -16,7 +15,6 @@ const MyBook = () => {
   }, []);
 
   const fetchIssuedBooks = async () => {
-    const base_url='https://library-management-system-z24o.onrender.com';
     try {
       const res = await axios.get(
         `${base_url}/issue/my-books`,

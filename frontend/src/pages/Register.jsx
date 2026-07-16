@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from "../style/pages/register.module.css";
 import axios from  'axios'
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const Register = () => {
   const [msg,setMsg]=useState('');
@@ -23,7 +25,6 @@ const Register = () => {
 
   const handleSubmit=async(e) => {
     e.preventDefault();
-    const base_url='https://library-management-system-z24o.onrender.com';
     if(formData.password!==formData.confirmPassword)
       return setMsg('password does not matched!')
     try{      

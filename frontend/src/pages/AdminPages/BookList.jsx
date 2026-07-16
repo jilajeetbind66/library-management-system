@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+const base_url = import.meta.env.VITE_BACKEND_URL
 
 const BookList = () => {
   const location=useLocation() 
@@ -11,7 +12,6 @@ const BookList = () => {
   const [books,setBooks]=useState([]);
   const [msg,setMsg]=useState(location?.state?.message);
   const [page,setPage]=useState(1);
-  const base_url='https://library-management-system-z24o.onrender.com';
   const [totalPage,setTotalPage]=useState(0);
   const limit=5;
 

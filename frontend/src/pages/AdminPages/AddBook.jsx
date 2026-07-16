@@ -2,8 +2,10 @@ import React, {useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../../style/admin/AddBook.module.css";
 import axios from 'axios'
-const AddBook = () => {
+const base_url = import.meta.env.VITE_BACKEND_URL
 
+
+const AddBook = () => {
   const navigate=useNavigate();
   const [msg,setMsg]=useState('')
   const [bookData, setBookData] = useState({
@@ -24,7 +26,6 @@ const AddBook = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-const base_url='https://library-management-system-z24o.onrender.com';
 try{
 const res= await axios.post(`${base_url}/books/add-book`,bookData,{withCredentials:true});
 setMsg(res.data.message);

@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const ViewBook = () => {
   const navigate=useNavigate()  
@@ -11,7 +13,6 @@ const ViewBook = () => {
   const [book,setBook]=useState([]);
   
 const Fetch_Details=async() => {
-const base_url='https://library-management-system-z24o.onrender.com';
 try{
 const res = await axios.get(`${base_url}/books/book-details/${id}`,{withCredentials:true});
 setBook(res.data.book)

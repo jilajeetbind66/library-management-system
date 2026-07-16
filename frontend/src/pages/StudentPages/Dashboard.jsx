@@ -4,13 +4,15 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
+const base_url = import.meta.env.VITE_BACKEND_URL
+
+
 const  Dashboard = () => {
 
 const navigate = useNavigate();
 const [student,setStudent]= useState();
 
 const fetchStudent=async()=>{
-const base_url='https://library-management-system-z24o.onrender.com';
 try{
 const res = await axios.get(`${base_url}/issue/dashboard`,{withCredentials:true});
 setStudent(res.data);

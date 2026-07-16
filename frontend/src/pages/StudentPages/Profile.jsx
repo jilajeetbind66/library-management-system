@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../../style/student/Profile.module.css";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const Profile = () => {
   const [student, setStudent] = useState({});
-  const base_url='https://library-management-system-z24o.onrender.com';
 
   useEffect(() => {
     fetchProfile();

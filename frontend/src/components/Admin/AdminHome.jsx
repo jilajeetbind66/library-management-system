@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../../style/admin/AdminContent.module.css';
 import axios from 'axios';
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const AdminHome = () => {
   
@@ -9,7 +11,6 @@ const AdminHome = () => {
    const [response,setResponse]=useState([]);
   
 const fetchData=async()=>{
-const base_url='https://library-management-system-z24o.onrender.com'
   try{
   const res = await axios.get(`${base_url}/issue/get-issue`,{withCredentials:true});
   setResponse(res.data);

@@ -1,6 +1,5 @@
 import {Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
-//import Register from './pages/Register';
 import AdminDashboard from './pages/AdminDashboard'
 import StudentDashboard from './pages/StudentDashboard';
 import GuestRoutes from './Routes/GuestRoutes';
@@ -14,7 +13,6 @@ const App = () => {
   <Routes>
       <Route path='/*' element={<GuestRoutes/>}/>
       <Route path='/login/' element={<Login/>}/> 
-      {/* <Route path='/register' element={<Register/>}/>  */}
       <Route path='/student/*' element={<StudentRoutes/>}/>      
       
       <Route element={<AdminProtectedRoute/>}>

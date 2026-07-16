@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios'
 import { useLocation } from "react-router-dom";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const AllStudentList = () => {
 const location = useLocation();
@@ -12,8 +14,6 @@ const [students,setStudents]=useState([]);
 const [msg,setMsg]=useState(location?.state?.message);
 const [page,setPage]=useState(1);
 const [totalPage,setTotalPage]=useState(0);
-const base_url='https://library-management-system-z24o.onrender.com';
-
 const limit=4;
 
 const fetchStudent=async()=>{

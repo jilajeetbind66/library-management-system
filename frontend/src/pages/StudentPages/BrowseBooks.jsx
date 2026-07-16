@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../../style/student/BrowseBook.module.css";
 import { Link } from "react-router-dom";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const BrowseBook = () => {
   const [books, setBooks] = useState([]);
@@ -16,7 +18,6 @@ const BrowseBook = () => {
   }, [page]);
 
   const fetchBooks = async () => {
-    const base_url='https://library-management-system-z24o.onrender.com';
     try {
       const res = await axios.get(`${base_url}/books/book-list?page=${page}&limit=${limit}`,{withCredentials:true});
     

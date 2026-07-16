@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import styles from "../../style/student/StudentHeader.module.css";
 import { UserContext } from "../../Context/UserContext";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const StudentHeader = () => {
   const { user } = useContext(UserContext);
-  const base_url='https://library-management-system-z24o.onrender.com';
-
 
   return (
     <header className={styles.header}>

@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import styles from "../../style/student/StudentSidebar.module.css";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const StudentSidebar = () => {
 const navigate=useNavigate();
 
 const handleLogout=async()=>{
 try{
-const base_url='https://library-management-system-z24o.onrender.com';
 const res = await axios.post(`${base_url}/user/logout`,{},{withCredentials:true})
 
 if(res.data.success)

@@ -3,13 +3,14 @@ import styles from '../../style/admin/ViewStudent.module.css'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const ViewStudent = () => {
 const [user,setUser]=useState([]);
 const [msg,setMsg]=useState('');
 const {id}=useParams()
 const navigate=useNavigate();
-const base_url='https://library-management-system-z24o.onrender.com';
 
 const fetchUser=async()=>{
 

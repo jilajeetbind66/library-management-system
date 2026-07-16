@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "../../style/admin/ReturnBook.module.css";
 import { useEffect } from "react";
 import axios from "axios";
+const base_url = import.meta.env.VITE_BACKEND_URL
+
 
 const ReturnBook = () => {
 
@@ -9,7 +11,6 @@ const ReturnBook = () => {
   const [msg,setMsg]=useState('');
     const [page,setPage]=useState(1);
     const [totalPage,setTotalPage]=useState(0);
-    const base_url='https://library-management-system-z24o.onrender.com';
     const limit=5;
   
 
